@@ -19,13 +19,20 @@ namespace AddressBook.Controllers
       return View();
     }
 
-    [HttpPost("/addcontact/add")]
+    [HttpPost("/")]
     public ActionResult NewContact()
     {
       Address newAddress = new Address(Request.Form["street-input"], Request.Form["city-input"], Request.Form["state-input"]);
       Contact newContact = new Contact(Request.Form["name-input"], Request.Form["phone-input"], newAddress);
       List<Contact> allContacts = Contact.GetBook();
       return View("Index", allContacts);
+    }
+
+    [HttpGet("/contact/{id}")]
+    public ActionResult ContactDetails(int id)
+    {
+      Contact chosenContact = Contact.Find(id);
+      return View(chosenContact);
     }
   }
 }

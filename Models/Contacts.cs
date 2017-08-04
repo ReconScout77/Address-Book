@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace AddressBook.Models
 {
   public class Contact
@@ -7,11 +9,12 @@ namespace AddressBook.Models
     private Address _home;
     private static List<Contact> _contacts = new List<Contact> {};
 
-    public Contact(string theName, string thePhone, string theHome)
+    public Contact(string theName, string thePhone, Address theHome)
     {
       _name = theName;
       _phone = thePhone;
       _home = theHome;
+      _contacts.Add(this);
     }
 
     public string GetName()

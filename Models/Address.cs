@@ -1,4 +1,6 @@
-namespace AddressBook
+using System.Collections.Generic;
+
+namespace AddressBook.Models
 {
   public class Address
   {

@@ -13,19 +13,18 @@ namespace AddressBook.Controllers
       return View(currentBook);
     }
 
-    [HttpGet("/addcontact")]
+    [HttpGet("/contact")]
     public ActionResult AddContact()
     {
       return View();
     }
 
-    [HttpPost("/")]
+    [HttpPost("/contact/new")]
     public ActionResult NewContact()
     {
       Address newAddress = new Address(Request.Form["street-input"], Request.Form["city-input"], Request.Form["state-input"]);
       Contact newContact = new Contact(Request.Form["name-input"], Request.Form["phone-input"], newAddress);
-      List<Contact> allContacts = Contact.GetBook();
-      return View("Index", allContacts);
+      return View(newContact);
     }
 
     [HttpGet("/contact/{id}")]
@@ -33,6 +32,13 @@ namespace AddressBook.Controllers
     {
       Contact chosenContact = Contact.Find(id);
       return View(chosenContact);
+    }
+
+    [HttpPost("/contacts/clear")]
+    public ActionResult ClearContacts()
+    {
+      Contact.ClearAll();
+      return View();
     }
   }
 }

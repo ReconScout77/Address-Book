@@ -8,9 +8,6 @@
 
 _This application can be used to create an address book using people's contact information._
 
-## Known Bugs
-
-_Doesn't work yet_
 
 ## Technologies Used
 

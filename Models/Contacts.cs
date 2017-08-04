@@ -57,5 +57,9 @@ namespace AddressBook.Models
       return _home;
     }
 
+    public static void ClearAll()
+    {
+      _contacts.Clear();
+    }
   }
 }
